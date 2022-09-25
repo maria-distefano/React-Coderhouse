@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+
+:root {
+    /* Font-family */
+    --font-principal: 'Patrick Hand', cursive;
+    --font-title: 'Patrick Hand', cursive;
+
+    /* Colors */
+    --primary: #120D31;
+    --secondary: #FF5376;
+    --alternative: #4d2f41;
+    --text-color: #2B2B2B;
+
+    /* Font-Sizes */
+    --text-large: 5.2em;
+    --text-medium: 2.2em;
+    --text-base: 1.6em;
+    --text-small: 1.4em;
+}
+
+.productos-container {
+    margin-top: 3rem;
+}
+
+.card {
+    border-color: #3a3e41;
+    background-color: #2B2B2B;
+    --bs-card-bg: none;
+    --bs-card-spacer-x: none;
+    --bs-card-title-spacer-y: none;
+    margin-bottom: 3rem;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex: 0;
+}
+
+.card-img {
+    height: 298px;
+    margin-bottom: 2rem;
+}
+
+.card-title {
+    font-size: 2em;
+    padding: 0 1rem;
+}
+
+.card-description {
+    font-size: 1.6em;
+    color: rgba(255, 255, 255, 0.788); 
+    padding: 1rem 2rem;
+    background-color: rgba(108, 101, 107, 0.42);
+    margin: 2rem 0;
+}
+
+.card-button {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 1.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.175);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.5em;
+    font-family: var(--font-principal);
+    background-color: #2B2B2B;
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-icon-button {
+    font-size: 1.1em;
+    margin-right: 1.2rem;
+}
+
+.productos-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
