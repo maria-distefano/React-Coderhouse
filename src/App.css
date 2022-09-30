@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400&family=Roboto+Slab:wght@300;500&display=swap');
 
-/* variables */
 
 :root {
     /* Font-family */
@@ -20,7 +19,6 @@
     --text-small: 1.4em;
 }
 
-/* normalize */
 *::after,
 *::before,
 * {
@@ -36,7 +34,7 @@ html {
 
 body {
     font-family: var(--font-principal);
-    background: #FF5376;
+    background: #ff859e;
     color: #fff;
 }
 
@@ -54,8 +52,6 @@ a {
 img {
     width: 100%;
 }
-
-/* main productos*/
 
 .main-container {
     display: flex;

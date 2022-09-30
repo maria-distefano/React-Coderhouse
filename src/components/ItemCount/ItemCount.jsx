@@ -8,7 +8,7 @@ function ItemCount(props) {
 
     const [values, setValues] = useState({ contador: 0, stock: 5 });
     const onAdd = () => {
-        if (values.contador <= 5) {
+        if (values.contador < 5) {
             // setValues({ ...values, contador: values.contador + 1 });
             setValues({ contador: values.contador + 1, stock: values.stock - 1 });
         }
