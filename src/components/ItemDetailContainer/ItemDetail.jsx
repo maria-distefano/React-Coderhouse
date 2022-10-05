@@ -14,10 +14,10 @@ function ItemDetail({ product}) {
     const handleAddToCart = (values) => {
         addItem(product, values)
         setEstadoCart(true);
-        toast.success(`Agregaste al carrito ${values} artículos`, {
-            position: "top-left",
-            autoClose: 800,
-            hideProgressBar: true,
+        toast.success(`¡Muy bien! 🔥 Agregaste ${values} al carrito`, {
+            position: "top-right",
+            autoClose: 1800,
+            hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,
