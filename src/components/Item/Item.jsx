@@ -1,6 +1,4 @@
-import  Button  from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import { FaShoppingCart } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
 
@@ -9,7 +7,6 @@ function Item({data}) {
 
     return(
         <Card
-        id={data.id}
         style={{ width: "30rem" }}>
         <Card.Img className="card-img" variant="top" src={data.img} />
         <Card.Body className='card-body'>
@@ -20,10 +17,6 @@ function Item({data}) {
             <Link to={urlProducto} className="card-detalle-button">
                 Ver detalle
             </Link>
-            <Button variant='dark' className='card-button'>
-                <FaShoppingCart className="cart-icon-button" />
-                Agregar al carrito
-            </Button>
         </Card.Body>
     </Card>
     );

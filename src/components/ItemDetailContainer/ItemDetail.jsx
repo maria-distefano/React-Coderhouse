@@ -1,34 +1,46 @@
-import React, { useState, useEffect } from 'react';
-import Button from 'react-bootstrap/Button';
+import React, { useState, useContext, useEffect } from 'react';
 import ItemCount from '../ItemCount/ItemCount';
-import { FaShoppingCart } from "react-icons/fa";
-import { items } from '../../services/items.js';
 import '../ItemDetailContainer/ItemDetail.css';
-import { useParams } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Link } from 'react-router-dom';
+import { cartContext } from '../../context/CartContext';
+import Spinner from '../Spinner/Spinner'
 
-function ItemDetail() {
+function ItemDetail({ product}) {
 
-    const [product, setProduct] = useState({})
-    const {id} = useParams();
-
-    function getSingleProduct(idItem) {
-        return new Promise((resolve, reject) => {
-            let itemFind = items.find((item) => {
-                return item.id === parseInt(idItem)
-            });
-            setTimeout(() => {
-                if (itemFind) resolve(itemFind);
-                else reject(new Error("Artículo no encontrado"));
-            }, 2000);
+    const [estadoCart, setEstadoCart] = useState(false);
+    const { addItem } = useContext(cartContext);
+    const handleAddToCart = (values) => {
+        addItem(product, values)
+        setEstadoCart(true);
+        toast.success(`Agregaste al carrito ${values} artículos`, {
+            position: "top-left",
+            autoClose: 800,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            className: "agregar-carrito",
         });
     }
 
+    const [loading, setLoading] = useState(false);
+
     useEffect(() => {
-        getSingleProduct(id).then((resp) => setProduct(resp));
-    }, [id])
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false)
+        }, 1200)
+
+    }, [])
 
     return (
-        <div className='detail-container'>
+        loading ?
+            <Spinner />
+            :
+         <div className='detail-container'>
             <div className='detail-img-container'>
                 <h2 className='detail-title'>{product.title}</h2>
                 <img className='detail-img' src={product.img} alt={product.title} />
@@ -36,11 +48,9 @@ function ItemDetail() {
             </div>
             <div className='detail-buy'>   
                     <h2 className='detail-price'>$ {product.price}</h2>
-                <ItemCount />
-                <Button variant='dark' className='detail-button'>
-                    <FaShoppingCart className="cart-icon-button" />
-                    Agregar al carrito
-                </Button>
+                    {
+                        estadoCart === false ? <ItemCount onAddToCart={handleAddToCart} /> : <Link className='detail-cart' to={"/cart"}>Ir al carrito</Link>}
+                    <ToastContainer />
             </div>
         </div>
     )

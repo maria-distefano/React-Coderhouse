@@ -20,3 +20,8 @@
     width: 18px;
     transform: translate(-10px, 1px);
 }
+
+.cart {
+    padding-top: 10px;
+    font-size: 2em;
+}

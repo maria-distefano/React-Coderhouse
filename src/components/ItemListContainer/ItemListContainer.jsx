@@ -17,7 +17,7 @@ function ItemListContainer() {
                 console.log(itemFilter)
                 if (itemFilter) resolve(itemFilter);
                 else reject(new Error("Artículo no encontrado"));
-            }, 2000);
+            }, 1200);
         });
     }
 
@@ -26,7 +26,7 @@ function ItemListContainer() {
             const getItems = new Promise((resolve) => {
                 setTimeout(() => {
                     resolve(items)
-                }, 2000)
+                }, 0)
             })
             getItems.then(respuesta => {
                 setData(respuesta)
